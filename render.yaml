@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: house-price-backend
+    runtime: python
+    env: python
+    region: frankfurt
+    plan: free
+    buildCommand: "pip install -r backend/requirements.txt"
+    startCommand: "cd backend && gunicorn app:app"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
