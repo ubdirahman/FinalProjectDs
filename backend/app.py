@@ -3,7 +3,8 @@ import joblib
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 
-MODEL_PATH = "house_price_model.pkl"
+import os
+MODEL_PATH = os.path.join(os.path.dirname(__file__), "house_price_model.pkl")
 
 # Load model (no numpy._core hacking)
 model = joblib.load(MODEL_PATH)
